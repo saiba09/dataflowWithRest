@@ -26,6 +26,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 
+import javax.xml.soap.Text;
+
 import java.util.ArrayList;
 public class restHit {
 	private static final Logger LOG = LoggerFactory.getLogger(StarterPipeline.class);
@@ -99,7 +101,9 @@ public class restHit {
 				}
 		  }
 		  
-		  p.apply(com.google.cloud.dataflow.sdk.transforms.Create.of(output1)).apply(ParDo.of(MUTATION_TRANSFORM))
+		 // p.apply(com.google.cloud.dataflow.sdk.transforms.Create.of(output1))
+		 
+		  p.apply(TextIO.Read.from("Patient.json")).apply(ParDo.of(MUTATION_TRANSFORM))
 			 //.apply(TextIO.Write.to("gs://mihin-data/temp-test.txt"));
 			 .apply(TextIO.Write.to("gs://mihin-data/temp123.txt"));
 		  p.run();
