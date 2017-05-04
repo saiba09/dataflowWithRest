@@ -37,30 +37,7 @@ public class restHit {
 		@Override
     		public void processElement(DoFn<String, String>.ProcessContext c) throws Exception{
       			String line = c.element();
-//      			String res = "";
-//      			JSONParser parser = new JSONParser();
-//     			 try {
-//     				Object object = parser.parse(line);
-//     				JSONObject jsonObject = (JSONObject) object;
-//     				JSONArray resource = (JSONArray) jsonObject.get("entry");
-//     				for(int i=0;i < resource.size() ; i++){
-//     				JSONObject jsonObject1 = (JSONObject) parser.parse(resource.get(i).toString());
-//     				//System.out.println(jsonObject1);
-//     				 HashMap<String , JSONArray> map = (HashMap) jsonObject1.get("resource");
-////     				System.out.println(jsonObject1.get("search"));
-//     				// System.out.println(map);
-//     				// System.out.println(map.get("gender"));
-//     				 JSONArray FullnameArray  = map.get("name") ;
-//     				 JSONObject nameObject  = (JSONObject) parser.parse(FullnameArray.get(0).toString());
-//     				 //System.out.println(nameObject.get("text"));
-//     				 //System.out.println(map.get("id"));
-//     				// System.out.println(map.get("birthDate"));
-//     				res ="Record " + i+ " "+ map.get("id") + " : " + nameObject.get("text") + " : " + map.get("gender") + " : " + map.get("birthDate") +"\n";
-//     				}
-//     			 }
-//     			 catch(Exception e){
-//     				 e.printStackTrace();
-//     			 }
+      			LOG.info("here");
       			c.output("Hello world");
  	    }
 	};
@@ -95,7 +72,7 @@ public class restHit {
 			bw = new BufferedWriter(fw);
 			System.out.println("Output from Server .... \n");
 			while ((output = br.readLine()) != null) {
-				output1 += output;
+			
 				bw.write(output);
 			}
 
