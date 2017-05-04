@@ -7,7 +7,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-
 import com.google.api.services.dataflow.Dataflow.Projects.Jobs.Create;
 import com.google.cloud.dataflow.sdk.Pipeline;
 import com.google.cloud.dataflow.sdk.io.TextIO;
@@ -38,7 +37,17 @@ public class restHit {
 		@Override
     		public void processElement(DoFn<String, String>.ProcessContext c) throws Exception{
       			String line = c.element();
-      			c.output(line);
+      			String res = "text";
+      			JSONParser parser = new JSONParser();
+     			 try {
+     				Object object = parser.parse(line);
+     				JSONObject jsonObject = (JSONObject) object;
+     				res = (String) jsonObject.get("resourceType");
+     			 }
+     			 catch(Exception e){
+     				 e.printStackTrace();
+     			 }
+      			c.output(res);
  	    }
 	};
 	
