@@ -13,6 +13,7 @@ import com.google.cloud.dataflow.sdk.Pipeline;
 import com.google.cloud.dataflow.sdk.io.TextIO;
 import com.google.cloud.dataflow.sdk.options.DataflowPipelineOptions;
 import com.google.cloud.dataflow.sdk.runners.BlockingDataflowPipelineRunner;
+import com.google.cloud.dataflow.sdk.runners.DirectPipelineRunner;
 import com.google.cloud.dataflow.sdk.options.PipelineOptionsFactory;
 import com.google.cloud.dataflow.sdk.transforms.DoFn;
 import com.google.cloud.dataflow.sdk.transforms.ParDo;
@@ -43,7 +44,8 @@ public class restHit {
 	
 	public static void main(String[] args) {
 		DataflowPipelineOptions options = PipelineOptionsFactory.create().as(DataflowPipelineOptions.class);
-		options.setRunner(BlockingDataflowPipelineRunner.class);
+		//options.setRunner(BlockingDataflowPipelineRunner.class);
+		options.setRunner(DirectPipelineRunner.class);
 		options.setProject("healthcare-12");
 		options.setStagingLocation("gs://mihin-data/staging1");
 		Pipeline p = Pipeline.create(options);
