@@ -44,7 +44,7 @@ public class restHit {
      				JSONObject jsonObject = (JSONObject) object;
      				JSONArray resource = (JSONArray) jsonObject.get("entry");
      				for(int i=0;i < resource.size() ; i++){
-     				JSONObject jsonObject1 = (JSONObject) parser.parse(resource.get(0).toString());
+     				JSONObject jsonObject1 = (JSONObject) parser.parse(resource.get(i).toString());
      				//System.out.println(jsonObject1);
      				 HashMap<String , JSONArray> map = (HashMap) jsonObject1.get("resource");
 //     				System.out.println(jsonObject1.get("search"));
@@ -55,7 +55,8 @@ public class restHit {
      				 //System.out.println(nameObject.get("text"));
      				 //System.out.println(map.get("id"));
      				// System.out.println(map.get("birthDate"));
-     				res = map.get("id") + " : " + nameObject.get("text") + " : " + map.get("gender") + " : " + map.get("birthDate") +"\n";}
+     				res ="Record " + i+ " "+ map.get("id") + " : " + nameObject.get("text") + " : " + map.get("gender") + " : " + map.get("birthDate") +"\n";
+     				}
      			 }
      			 catch(Exception e){
      				 e.printStackTrace();
