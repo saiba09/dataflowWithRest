@@ -37,12 +37,25 @@ public class restHit {
 		@Override
     		public void processElement(DoFn<String, String>.ProcessContext c) throws Exception{
       			String line = c.element();
-      			String res = "text";
+      			String res = "";
       			JSONParser parser = new JSONParser();
      			 try {
      				Object object = parser.parse(line);
      				JSONObject jsonObject = (JSONObject) object;
-     				res = (String) jsonObject.get("resourceType");
+     				JSONArray resource = (JSONArray) jsonObject.get("entry");
+     				for(int i=0;i < resource.size() ; i++){
+     				JSONObject jsonObject1 = (JSONObject) parser.parse(resource.get(0).toString());
+     				//System.out.println(jsonObject1);
+     				 HashMap<String , JSONArray> map = (HashMap) jsonObject1.get("resource");
+//     				System.out.println(jsonObject1.get("search"));
+     				// System.out.println(map);
+     				// System.out.println(map.get("gender"));
+     				 JSONArray FullnameArray  = map.get("name") ;
+     				 JSONObject nameObject  = (JSONObject) parser.parse(FullnameArray.get(0).toString());
+     				 //System.out.println(nameObject.get("text"));
+     				 //System.out.println(map.get("id"));
+     				// System.out.println(map.get("birthDate"));
+     				res = map.get("id") + " : " + nameObject.get("text") + " : " + map.get("gender") + " : " + map.get("birthDate") +"\n";}
      			 }
      			 catch(Exception e){
      				 e.printStackTrace();
@@ -114,9 +127,9 @@ public class restHit {
 		  
 		 // p.apply(com.google.cloud.dataflow.sdk.transforms.Create.of(output1))
 		 
-		  p.apply(TextIO.Read.from("Patient.json")).apply(ParDo.of(MUTATION_TRANSFORM))
+		  p.apply(TextIO.Read.named("Fetching from rest API").from("Patient.json")).apply(ParDo.named("data Transformation").of(MUTATION_TRANSFORM))
 			 //.apply(TextIO.Write.to("gs://mihin-data/temp-test.txt"));
-			 .apply(TextIO.Write.to("gs://mihin-data/temp123.txt"));
+			 .apply(TextIO.Write.named("Loading to big Table").to("gs://mihin-data/temp123.txt"));
 		  p.run();
 		}
 }
