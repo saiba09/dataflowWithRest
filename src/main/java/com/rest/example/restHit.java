@@ -7,6 +7,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+
+import com.google.api.services.dataflow.Dataflow.Projects.Jobs.Create;
 import com.google.cloud.dataflow.sdk.Pipeline;
 import com.google.cloud.dataflow.sdk.io.TextIO;
 import com.google.cloud.dataflow.sdk.options.DataflowPipelineOptions;
@@ -45,6 +47,7 @@ public class restHit {
 		Pipeline p = Pipeline.create(options);
 		BufferedWriter bw = null;
 		FileWriter fw = null;
+		String output1="";
 		  try {
 
 			URL url = new URL("https://fhirtest.uhn.ca/baseDstu2/Patient?_pretty=true");
@@ -65,6 +68,7 @@ public class restHit {
 			bw = new BufferedWriter(fw);
 			System.out.println("Output from Server .... \n");
 			while ((output = br.readLine()) != null) {
+				output1 += output;
 				bw.write(output);
 			}
 
@@ -95,7 +99,7 @@ public class restHit {
 				}
 		  }
 		  
-		  p.apply(TextIO.Read.from("Patient.json")).apply(ParDo.of(MUTATION_TRANSFORM))
+		  p.apply(com.google.cloud.dataflow.sdk.transforms.Create.of(output1)).apply(ParDo.of(MUTATION_TRANSFORM))
 			 //.apply(TextIO.Write.to("gs://mihin-data/temp-test.txt"));
 			 .apply(TextIO.Write.to("gs://mihin-data/temp123.txt"));
 		  p.run();
