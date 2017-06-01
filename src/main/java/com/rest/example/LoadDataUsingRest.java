@@ -17,7 +17,7 @@ public static void main(String[] args) throws InterruptedException, TimeoutExcep
 	BigQuery bigquery = BigQueryOptions.getDefaultInstance().getService();
 	
 	String querry = RestHandler.getData();
-	if (! querry.equals(null)) {
+/*	if (! querry.equals(null)) {
 		 QueryJobConfiguration queryConfig =
 			        QueryJobConfiguration.newBuilder(querry)
 			            // Use standard SQL syntax for queries.
@@ -42,7 +42,7 @@ public static void main(String[] args) throws InterruptedException, TimeoutExcep
 
 	else{
 		System.out.println("UNABLE TO FETCH DATA");
-	}
+	}*/
   
       }
 
