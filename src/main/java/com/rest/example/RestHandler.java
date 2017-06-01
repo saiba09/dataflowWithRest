@@ -43,12 +43,12 @@ public class RestHandler {
 							p.getResourceObject().getAddress()[0].getState()+"' , '"+p.getResourceObject().getMaritialStatus().toString()+"' , '"+ p.getResourceObject().getTelecom()[0].toString()+"' , '" + 
 							p.getResourceObject().getGender()+ "' , '" +p.getResourceObject().getBirthDate()+"' , '"+p.getResourceObject().getMultipleBirthInteger()+"' , '" +
 							p.getResourceObject().getDeceasedDateTime()+"' ) ,";
-				System.out.println(p.getResourceObject().getAddress()[0].getCity());
-					System.out.println(values);
+				System.out.println(p.toString());
+					System.out.println("Values" +values);
 				}
 				
 			values = values.substring(0, values.lastIndexOf(')')+1) ;
-			System.out.println(sql);
+			System.out.println("sql" +sql);
 			System.out.println(values);
 			//return sql+values;
 			}
