@@ -4,6 +4,13 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.rest.DAO.Patient;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 public class RestHandler {
 	public static void main(String[] args) {
@@ -19,8 +26,16 @@ public class RestHandler {
 				String line;				
 				while ((line = br.readLine()) != null) {
 					sb.append(line);
-				}					
-				System.out.println(sb.toString());
+				}	
+				JSONParser parser = new JSONParser();
+				Object obj = parser.parse(sb.toString());
+				JSONObject jsonObject = (JSONObject) obj;
+				JSONArray patientEntry = (JSONArray)jsonObject.get("entry");
+				for (int i = 0; i < patientEntry.size(); i++) {
+					 Gson gson = new GsonBuilder().create();
+			            Patient p = gson.fromJson(patientEntry.get(i).toString(), Patient.class);
+			            System.out.println(p);
+				}
 			}
 			
 			

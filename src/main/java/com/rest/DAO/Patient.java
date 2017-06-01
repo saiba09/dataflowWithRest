@@ -22,4 +22,12 @@ public search getSearchObject() {
 public void setSearchObject(search searchObject) {
 	this.searchObject = searchObject;
 }
+@Override
+public String toString() {
+	return "Patient [fullUrl=" + fullUrl + ", resourceObject=" + resourceObject + ", searchObject=" + searchObject
+			+ ", getFullUrl()=" + getFullUrl() + ", getResourceObject()=" + getResourceObject() + ", getSearchObject()="
+			+ getSearchObject() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+			+ super.toString() + "]";
+}
+
 }
