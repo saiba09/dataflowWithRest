@@ -19,7 +19,7 @@ public void setResourceObject(Resource resourceObject) {
 
 @Override
 public String toString() {
-	return "Patient [fullUrl=" + fullUrl + ", resourceObject=" + resource 
+	return "Patient [fullUrl=" + fullUrl + ", resource=" + resource 
 			+ "]";
 }
 
