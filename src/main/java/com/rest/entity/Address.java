@@ -1,5 +1,7 @@
 package com.rest.entity;
 
+import java.util.Arrays;
+
 public class Address {
 
 	String use,type,city,district,postalCode,state;
@@ -45,5 +47,11 @@ public class Address {
 	}
 	public void setLine(String[] line) {
 		this.line = line;
+	}
+	@Override
+	public String toString(){
+		return Arrays.toString(line)+" "+district +" "+ city +" "+postalCode;
+				
+		
 	}
 }

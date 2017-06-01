@@ -19,6 +19,6 @@ public class Name {
 	}
 	@Override
 	public String toString() {
-		return "name [family=" + family + ", given=" + Arrays.toString(given) + "]";
+		return  family + " " + Arrays.toString(given) ;
 	}
 }

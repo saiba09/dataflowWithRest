@@ -26,4 +26,10 @@ public class Telecom {
 	public void setUse(String use) {
 		this.use = use;
 	}
+
+	@Override
+	public String toString() {
+		return "" + value + "";
+	}
+	
 }

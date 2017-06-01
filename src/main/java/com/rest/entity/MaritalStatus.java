@@ -11,4 +11,8 @@ public class MaritalStatus {
 	public void setCoding(Coding[] coding) {
 		this.coding = coding;
 	}
+	@Override
+	public String toString(){
+		return coding[0].getCode();
+	}
 }
