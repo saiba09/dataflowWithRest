@@ -39,7 +39,9 @@ public class RestHandler {
 					Gson gson = new GsonBuilder().create();
 					Patient p = gson.fromJson(patientEntry.get(i).toString(), Patient.class);
 					System.out.println("p string1"+p.getResourceObject());
-					System.out.println("name : "+p.getResourceObject().getName().toString()  );
+					System.out.println("name : "+ p.getResourceObject().getName()[0].getPatientName()  );
+					System.out.println("id" + p.getResourceObject().getId());
+					System.out.println("add :" + p.getResourceObject().getAddress()[0].getState() );
 					values += "( '" +p.getResourceObject().getId()+"' , '"+p.getResourceObject().getName().toString() +
 							"' , '"+p.getResourceObject().getAddress().toString() + "' , '"+p.getResourceObject().getAddress()[0].getCity() +"' , '"+
 							p.getResourceObject().getAddress()[0].getState()+"' , '"+p.getResourceObject().getMaritialStatus().toString()+"' , '"+ p.getResourceObject().getTelecom()[0].toString()+"' , '" + 

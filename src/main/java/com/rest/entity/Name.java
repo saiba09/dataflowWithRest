@@ -21,4 +21,7 @@ public class Name {
 	public String toString() {
 		return  family + " " + Arrays.toString(given) ;
 	}
+	public String getPatientName(){
+		return family + " " + Arrays.toString(given) ;
+	}
 }
