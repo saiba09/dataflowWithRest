@@ -16,8 +16,8 @@ public class LoadDataUsingRest {
 public static void main(String[] args) throws InterruptedException, TimeoutException {
 	BigQuery bigquery = BigQueryOptions.getDefaultInstance().getService();
 	
-	String querry = RestHandler.getData();
-	System.out.println(querry);
+	//String querry = RestHandler.getData();
+//	System.out.println(querry);
 /*	if (! querry.equals(null)) {
 		 QueryJobConfiguration queryConfig =
 			        QueryJobConfiguration.newBuilder(querry)
