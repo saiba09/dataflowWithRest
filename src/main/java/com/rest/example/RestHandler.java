@@ -22,7 +22,7 @@ public class RestHandler {
 			HttpURLConnection con = (HttpURLConnection)url.openConnection();
 			con.setRequestMethod("GET");
 			con.setRequestProperty("Accept", "application/json");
-
+			System.out.println("before request");
 			if(con.getResponseCode() == 200){
 				BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
 				StringBuilder sb = new StringBuilder();
@@ -34,6 +34,7 @@ public class RestHandler {
 				Object obj = parser.parse(sb.toString());
 				JSONObject jsonObject = (JSONObject) obj;
 				JSONArray patientEntry = (JSONArray)jsonObject.get("entry");
+				System.out.println(patientEntry.get(0));
 				for (int i = 0; i < patientEntry.size(); i++) {
 					Gson gson = new GsonBuilder().create();
 					Patient p = gson.fromJson(patientEntry.get(i).toString(), Patient.class);
