@@ -49,7 +49,7 @@ public class RestHandler {
 				
 			values = values.substring(0, values.lastIndexOf(')')+1) ;
 			System.out.println("sql" +sql);
-			System.out.println(values);
+			System.out.println("values 123" + values);
 			//return sql+values;
 			}
 			
