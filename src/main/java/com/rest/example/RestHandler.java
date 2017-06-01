@@ -31,10 +31,10 @@ public class RestHandler {
 				Object obj = parser.parse(sb.toString());
 				JSONObject jsonObject = (JSONObject) obj;
 				JSONArray patientEntry = (JSONArray)jsonObject.get("entry");
-				for (int i = 0; i < patientEntry.size(); i++) {
-					 Gson gson = new GsonBuilder().create();
-			            Patient p = gson.fromJson(patientEntry.get(i).toString(), Patient.class);
-			            System.out.println(p);
+				for (int i = 0; i < 1; i++) {
+					 //Gson gson = new GsonBuilder().create();
+			            //Patient p = gson.fromJson(patientEntry.get(i).toString(), Patient.class);
+			            System.out.println(patientEntry.get(i).toString());
 				}
 			}
 			

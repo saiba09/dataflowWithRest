@@ -20,25 +20,6 @@ public void setResourcrType(String resourcrType) {
 public String getId() {
 	return id;
 }
-@Override
-public String toString() {
-	return "resource [resourcrType=" + resourcrType + ", id=" + id + ", metaOnject=" + metaOnject + ", language="
-			+ language + ", textObject=" + textObject + ", identifierObject=" + Arrays.toString(identifierObject)
-			+ ", active=" + active + ", nameObject=" + Arrays.toString(nameObject) + ", telecomObject="
-			+ Arrays.toString(telecomObject) + ", gender=" + gender + ", birthDate=" + birthDate + ", deceasedDateTime="
-			+ deceasedDateTime + ", addressObject=" + Arrays.toString(addressObject) + ", maritalStatus="
-			+ maritalStatus + ", codingObject=" + Arrays.toString(codingObject) + ", multipleBirthInteger="
-			+ multipleBirthInteger + ", getResourcrType()=" + getResourcrType() + ", getId()=" + getId()
-			+ ", getMetaOnject()=" + getMetaOnject() + ", getLanguage()=" + getLanguage() + ", getTextObject()="
-			+ getTextObject() + ", getIdentifierObject()=" + Arrays.toString(getIdentifierObject()) + ", getActive()="
-			+ getActive() + ", getNameObject()=" + Arrays.toString(getNameObject()) + ", getTelecomObject()="
-			+ Arrays.toString(getTelecomObject()) + ", getGender()=" + getGender() + ", getBirthDate()="
-			+ getBirthDate() + ", getDeceasedDateTime()=" + getDeceasedDateTime() + ", getAddressObject()="
-			+ Arrays.toString(getAddressObject()) + ", getMaritalStatus()=" + getMaritalStatus()
-			+ ", getCodingObject()=" + Arrays.toString(getCodingObject()) + ", getMultipleBirthInteger()="
-			+ getMultipleBirthInteger() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-			+ super.toString() + "]";
-}
 public void setId(String id) {
 	this.id = id;
 }
@@ -134,6 +115,16 @@ address[] addressObject;
 String maritalStatus;
 coding [] codingObject;
 int multipleBirthInteger;
+@Override
+public String toString() {
+	return "resource [resourcrType=" + resourcrType + ", id=" + id + ", metaOnject=" + metaOnject + ", language="
+			+ language + ", textObject=" + textObject + ", identifierObject=" + Arrays.toString(identifierObject)
+			+ ", active=" + active + ", nameObject=" + Arrays.toString(nameObject) + ", telecomObject="
+			+ Arrays.toString(telecomObject) + ", gender=" + gender + ", birthDate=" + birthDate + ", deceasedDateTime="
+			+ deceasedDateTime + ", addressObject=" + Arrays.toString(addressObject) + ", maritalStatus="
+			+ maritalStatus + ", codingObject=" + Arrays.toString(codingObject) + ", multipleBirthInteger="
+			+ multipleBirthInteger + "]";
+}
 }
 class search{
 	String mode ;
