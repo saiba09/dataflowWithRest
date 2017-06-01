@@ -1,5 +1,15 @@
 package com.rest.DAO;
+
+import java.util.Arrays;
+
 public class meta{
+	@Override
+	public String toString() {
+		return "meta [versionId=" + versionId + ", lastUpdated=" + lastUpdated + ", getVersionId()=" + getVersionId()
+				+ ", getLastUpdated()=" + getLastUpdated() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
+
 	public String getVersionId() {
 		return versionId;
 	}
@@ -110,6 +120,12 @@ class coding{
 	}
 }
 class name{
+	@Override
+	public String toString() {
+		return "name [family=" + family + ", given=" + Arrays.toString(given) + ", getFamily()=" + getFamily()
+				+ ", getGiven()=" + Arrays.toString(getGiven()) + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
+	}
 	String family;
 	String given[] ;
 	public String getFamily() {
@@ -153,6 +169,15 @@ class telecom{
 	}
 }
 class address{
+	@Override
+	public String toString() {
+		return "address [use=" + use + ", type=" + type + ", city=" + city + ", district=" + district + ", postalCode="
+				+ postalCode + ", state=" + state + ", line=" + Arrays.toString(line) + ", getUse()=" + getUse()
+				+ ", getType()=" + getType() + ", getCity()=" + getCity() + ", getDistrict()=" + getDistrict()
+				+ ", getPostalCode()=" + getPostalCode() + ", getState()=" + getState() + ", getLine()="
+				+ Arrays.toString(getLine()) + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
 	String use,type,city,district,postalCode,state;
 	String [] line;
 	public String getUse() {
