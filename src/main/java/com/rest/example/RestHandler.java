@@ -32,9 +32,9 @@ public class RestHandler {
 				JSONObject jsonObject = (JSONObject) obj;
 				JSONArray patientEntry = (JSONArray)jsonObject.get("entry");
 				for (int i = 0; i < 1; i++) {
-					 //Gson gson = new GsonBuilder().create();
-			            //Patient p = gson.fromJson(patientEntry.get(i).toString(), Patient.class);
-			            System.out.println(patientEntry.get(i).toString());
+					 Gson gson = new GsonBuilder().create();
+			           Patient p = gson.fromJson(patientEntry.get(i).toString(), Patient.class);
+			            System.out.println(p);
 				}
 			}
 			

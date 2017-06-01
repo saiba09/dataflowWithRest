@@ -3,11 +3,10 @@ package com.rest.DAO;
 import java.util.Arrays;
 
 public class meta{
+	String versionId, lastUpdated;
 	@Override
 	public String toString() {
-		return "meta [versionId=" + versionId + ", lastUpdated=" + lastUpdated + ", getVersionId()=" + getVersionId()
-				+ ", getLastUpdated()=" + getLastUpdated() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+		return "meta [versionId=" + versionId + ", lastUpdated=" + lastUpdated + "]";
 	}
 
 	public String getVersionId() {
@@ -26,7 +25,7 @@ public class meta{
 		this.lastUpdated = lastUpdated;
 	}
 
-	String versionId, lastUpdated;
+	
 }
 class text{
 	String status , div;
@@ -49,6 +48,8 @@ class text{
 }
 class identifier{
 	String use;
+	type typeObject;
+	String system , value;
 	public String getUse() {
 		return use;
 	}
@@ -73,8 +74,7 @@ class identifier{
 	public void setValue(String value) {
 		this.value = value;
 	}
-	type typeObject;
-	String system , value;
+
 }
 class type{
 	coding[] codingObject;
@@ -120,12 +120,7 @@ class coding{
 	}
 }
 class name{
-	@Override
-	public String toString() {
-		return "name [family=" + family + ", given=" + Arrays.toString(given) + ", getFamily()=" + getFamily()
-				+ ", getGiven()=" + Arrays.toString(getGiven()) + ", getClass()=" + getClass() + ", hashCode()="
-				+ hashCode() + ", toString()=" + super.toString() + "]";
-	}
+
 	String family;
 	String given[] ;
 	public String getFamily() {
@@ -140,6 +135,11 @@ class name{
 	public void setGiven(String[] given) {
 		this.given = given;
 	}
+	@Override
+	public String toString() {
+		return "name [family=" + family + ", given=" + Arrays.toString(given) + "]";
+	}
+	
 }
 class telecom{
 	String system, value,use;
@@ -169,15 +169,7 @@ class telecom{
 	}
 }
 class address{
-	@Override
-	public String toString() {
-		return "address [use=" + use + ", type=" + type + ", city=" + city + ", district=" + district + ", postalCode="
-				+ postalCode + ", state=" + state + ", line=" + Arrays.toString(line) + ", getUse()=" + getUse()
-				+ ", getType()=" + getType() + ", getCity()=" + getCity() + ", getDistrict()=" + getDistrict()
-				+ ", getPostalCode()=" + getPostalCode() + ", getState()=" + getState() + ", getLine()="
-				+ Arrays.toString(getLine()) + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
-	}
+
 	String use,type,city,district,postalCode,state;
 	String [] line;
 	public String getUse() {
@@ -221,5 +213,16 @@ class address{
 	}
 	public void setLine(String[] line) {
 		this.line = line;
+	}
+}
+class maritalStatus{
+	coding[] coding;
+
+	public coding[] getCoding() {
+		return coding;
+	}
+
+	public void setCoding(coding[] coding) {
+		this.coding = coding;
 	}
 }
