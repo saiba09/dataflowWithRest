@@ -3,7 +3,7 @@ package com.rest.DAO;
 public class Patient {
 String fullUrl;
 resource resourceObject;
-search searchObject;
+
 public String getFullUrl() {
 	return fullUrl;
 }
@@ -16,15 +16,10 @@ public resource getResourceObject() {
 public void setResourceObject(resource resourceObject) {
 	this.resourceObject = resourceObject;
 }
-public search getSearchObject() {
-	return searchObject;
-}
-public void setSearchObject(search searchObject) {
-	this.searchObject = searchObject;
-}
+
 @Override
 public String toString() {
-	return "Patient [fullUrl=" + fullUrl + ", resourceObject=" + resourceObject + ", searchObject=" + searchObject
+	return "Patient [fullUrl=" + fullUrl + ", resourceObject=" + resourceObject 
 			+ "]";
 }
 

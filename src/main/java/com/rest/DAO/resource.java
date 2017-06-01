@@ -3,13 +3,8 @@ package com.rest.DAO;
 import java.util.Arrays;
 
 public class resource {
-String resourcrType;//
+
 String id; //
-meta metaOnject;//
-String language;//
-text textObject;//
-identifier[] identifierObject;//
-Boolean active;//
 name[] nameObject;//
 telecom[] telecomObject;//
 String gender;//
@@ -18,48 +13,13 @@ String deceasedDateTime;//
 address[] addressObject;//
 maritalStatus maritialStatusObject ;//
 int multipleBirthInteger;//
-public String getResourcrType() {
-	return resourcrType;
-}
-public void setResourcrType(String resourcrType) {
-	this.resourcrType = resourcrType;
-}
 public String getId() {
 	return id;
 }
 public void setId(String id) {
 	this.id = id;
 }
-public meta getMetaOnject() {
-	return metaOnject;
-}
-public void setMetaOnject(meta metaOnject) {
-	this.metaOnject = metaOnject;
-}
-public String getLanguage() {
-	return language;
-}
-public void setLanguage(String language) {
-	this.language = language;
-}
-public text getTextObject() {
-	return textObject;
-}
-public void setTextObject(text textObject) {
-	this.textObject = textObject;
-}
-public identifier[] getIdentifierObject() {
-	return identifierObject;
-}
-public void setIdentifierObject(identifier[] identifierObject) {
-	this.identifierObject = identifierObject;
-}
-public Boolean getActive() {
-	return active;
-}
-public void setActive(Boolean active) {
-	this.active = active;
-}
+
 public name[] getNameObject() {
 	return nameObject;
 }
@@ -111,24 +71,11 @@ public void setMaritialStatusObject(maritalStatus maritialStatusObject) {
 }
 @Override
 public String toString() {
-	return "resource [resourcrType=" + resourcrType + ", id=" + id + ", metaOnject=" + metaOnject + ", language="
-			+ language + ", textObject=" + textObject + ", identifierObject=" + Arrays.toString(identifierObject)
-			+ ", active=" + active + ", nameObject=" + Arrays.toString(nameObject) + ", telecomObject="
+	return "resource [id=" + id + ", nameObject=" + Arrays.toString(nameObject) + ", telecomObject="
 			+ Arrays.toString(telecomObject) + ", gender=" + gender + ", birthDate=" + birthDate + ", deceasedDateTime="
 			+ deceasedDateTime + ", addressObject=" + Arrays.toString(addressObject) + ", maritialStatusObject="
 			+ maritialStatusObject + ", multipleBirthInteger=" + multipleBirthInteger + "]";
 }
 
 
-}
-class search{
-	String mode ;
-
-	public String getMode() {
-		return mode;
-	}
-
-	public void setMode(String mode) {
-		this.mode = mode;
-	}
 }
