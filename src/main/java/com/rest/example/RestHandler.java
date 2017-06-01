@@ -43,7 +43,7 @@ public class RestHandler {
 							p.getResourceObject().getAddress()[0].getState()+"' , '"+p.getResourceObject().getMaritialStatus().toString()+"' , '"+ p.getResourceObject().getTelecom()[0].toString()+"' , '" + 
 							p.getResourceObject().getGender()+ "' , '" +p.getResourceObject().getBirthDate()+"' , '"+p.getResourceObject().getMultipleBirthInteger()+"' , '" +
 							p.getResourceObject().getDeceasedDateTime()+"' ) ,";
-				System.out.println(p.toString());
+				System.out.println("p string"+p.toString());
 					System.out.println("Values" +values);
 				}
 				
@@ -55,7 +55,7 @@ public class RestHandler {
 			
 
 		}catch(Exception ex){
-			System.out.println(ex.getMessage());
+			System.out.println("exception : " + ex.getMessage());
 		}
 		//return sql;
 	}
