@@ -43,6 +43,7 @@ public class RestHandler {
 							p.getResourceObject().getDeceasedDateTime()+"' ) ,";
 				}
 			values = values.substring(0, values.lastIndexOf(')')+1) ;
+			System.out.println(sql+values);
 			return sql+values;
 			}
 			
@@ -50,6 +51,6 @@ public class RestHandler {
 		}catch(Exception ex){
 			System.out.println(ex.getMessage());
 		}
-		return null;
+		return "null";
 	}
 }
