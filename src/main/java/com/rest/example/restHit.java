@@ -7,28 +7,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import com.google.api.services.dataflow.Dataflow.Projects.Jobs.Create;
 import com.google.cloud.dataflow.sdk.Pipeline;
 import com.google.cloud.dataflow.sdk.io.TextIO;
 import com.google.cloud.dataflow.sdk.options.DataflowPipelineOptions;
-import com.google.cloud.dataflow.sdk.runners.BlockingDataflowPipelineRunner;
 import com.google.cloud.dataflow.sdk.runners.DirectPipelineRunner;
 import com.google.cloud.dataflow.sdk.options.PipelineOptionsFactory;
 import com.google.cloud.dataflow.sdk.transforms.DoFn;
 import com.google.cloud.dataflow.sdk.transforms.ParDo;
-import com.google.cloud.dataflow.sdk.values.PDone;
-import java.io.IOException;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.HashMap;
-
-import javax.xml.soap.Text;
-
-import java.util.ArrayList;
 public class restHit {
 	private static final Logger LOG = LoggerFactory.getLogger(StarterPipeline.class);
 	private static final String FILENAME = "Patient.json";
