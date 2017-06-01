@@ -52,6 +52,6 @@ public class RestHandler {
 		}catch(Exception ex){
 			System.out.println(ex.getMessage());
 		}
-		return "null";
+		return sql;
 	}
 }

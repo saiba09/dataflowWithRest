@@ -17,6 +17,7 @@ public static void main(String[] args) throws InterruptedException, TimeoutExcep
 	BigQuery bigquery = BigQueryOptions.getDefaultInstance().getService();
 	
 	String querry = RestHandler.getData();
+	System.out.println(querry);
 /*	if (! querry.equals(null)) {
 		 QueryJobConfiguration queryConfig =
 			        QueryJobConfiguration.newBuilder(querry)
