@@ -13,7 +13,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class RestHandler {
-	public static String getData(){
+//	public static String getData(){
+	public static void main(String[] args){
 		String sql ="INSERT INTO `healthcare-12:Mihin_Data_Sample.PatientDataFromRest` ( patient_id, name, Address, city, State, maritialStatus, telecom, gender, birthDate, multipleBirthInteger, deceasedDateTime ) VALUES ";
 		String values="";
 		try{
@@ -45,13 +46,13 @@ public class RestHandler {
 			values = values.substring(0, values.lastIndexOf(')')+1) ;
 			System.out.println(sql);
 			System.out.println(values);
-			return sql+values;
+			//return sql+values;
 			}
 			
 
 		}catch(Exception ex){
 			System.out.println(ex.getMessage());
 		}
-		return sql;
+		//return sql;
 	}
 }
