@@ -15,7 +15,7 @@ import org.json.simple.parser.JSONParser;
 public class RestHandler {
 	public static String getData(){
 		//public static void main(String[] args){
-		String sql ="INSERT INTO `healthcare-12.Mihin_Data_Sample.PatientDataFromRest` ( patient_id, name, Address, city, State, maritialStatus, telecom, gender, birthDate, multipleBirthInteger, deceasedDateTime ) VALUES ";
+		String sql ="#standardSQL \n   INSERT INTO `healthcare-12.Mihin_Data_Sample.PatientDataFromRest` ( patient_id, name, Address, city, State, maritialStatus, telecom, gender, birthDate, multipleBirthInteger, deceasedDateTime ) VALUES ";
 		String values="";
 		try{
 			URL url = new URL("http://52.90.126.238:8080/fhir/baseDstu3/Patient");
