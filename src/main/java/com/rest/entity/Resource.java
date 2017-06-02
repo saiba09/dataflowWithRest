@@ -10,7 +10,7 @@ String gender;//
 String birthDate;//
 String deceasedDateTime;//
 Address[] address;//
-MaritalStatus maritialStatus ;//
+MaritalStatus maritalStatus ;//
 int multipleBirthInteger;//
 public String getId() {
 	return id;
@@ -55,10 +55,10 @@ public void setAddress(Address[] address) {
 	this.address = address;
 }
 public MaritalStatus getMaritialStatus() {
-	return maritialStatus;
+	return maritalStatus;
 }
 public void setMaritialStatus(MaritalStatus maritialStatus) {
-	this.maritialStatus = maritialStatus;
+	this.maritalStatus = maritialStatus;
 }
 public int getMultipleBirthInteger() {
 	return multipleBirthInteger;
