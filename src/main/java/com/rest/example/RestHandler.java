@@ -56,7 +56,7 @@ public class RestHandler {
 						values += p.getResourceObject().getTelecom()[0].toString()+"' , '";
 					}
 					else values += "null' , '" ; 
-					values += p.getResourceObject().getGender()+ "' , '" +p.getResourceObject().getBirthDate()+"' , '"+p.getResourceObject().getMultipleBirthInteger()+"' , '" +
+					values += p.getResourceObject().getGender()+ "' , '" +p.getResourceObject().getBirthDate()+"' , "+p.getResourceObject().getMultipleBirthInteger()+" , '" +
 							p.getResourceObject().getDeceasedDateTime()+"' ) ,";
 
 					System.out.println("Values" +values);
