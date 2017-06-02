@@ -38,17 +38,21 @@ public class RestHandler {
 				for (int i = 0; i < patientEntry.size(); i++) {
 					Gson gson = new GsonBuilder().create();
 					Patient p = gson.fromJson(patientEntry.get(i).toString(), Patient.class);
-					values += "( '" +p.getResourceObject().getId()+"' , '"+p.getResourceObject().getName().toString() +
-							"' , '"+p.getResourceObject().getAddress().toString() + "' , '"+p.getResourceObject().getAddress()[0].getCity() +"' , '"+
+					System.out.println("id" + p.getResourceObject().getId());
+					System.out.println("add :" + p.getResourceObject().getAddress()[0].toString() );
+					System.out.println("mar :"+p.getResourceObject().getMaritialStatus());
+					System.out.println("tele :" + p.getResourceObject().getTelecom()[0].toString());
+					System.out.println("gen :"+ p.getResourceObject().getGender() + "  : dob "+ p.getResourceObject().getBirthDate());
+					values += "( '" +p.getResourceObject().getId()+"' , '"+p.getResourceObject().getName()[0].toString() +
+							"' , '"+p.getResourceObject().getAddress()[0].toString() + "' , '"+p.getResourceObject().getAddress()[0].getCity() +"' , '"+
 							p.getResourceObject().getAddress()[0].getState()+"' , '"+p.getResourceObject().getMaritialStatus().toString()+"' , '"+ p.getResourceObject().getTelecom()[0].toString()+"' , '" + 
 							p.getResourceObject().getGender()+ "' , '" +p.getResourceObject().getBirthDate()+"' , '"+p.getResourceObject().getMultipleBirthInteger()+"' , '" +
 							p.getResourceObject().getDeceasedDateTime()+"' ) ,";
-				System.out.println("p string"+p.toString());
 					System.out.println("Values" +values);
 				}
 				
-			values = values.substring(0, values.lastIndexOf(')')+1) ;
-			System.out.println("sql" +sql);
+		//	values = values.substring(0, values.lastIndexOf(')')+1) ;
+			System.out.println("sql" +sql+values);
 			System.out.println("values 123" + values);
 			//return sql+values;
 			}
