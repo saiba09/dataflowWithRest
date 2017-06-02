@@ -35,9 +35,9 @@ public class RestHandler {
 				JSONObject jsonObject = (JSONObject) obj;
 				JSONArray patientEntry = (JSONArray)jsonObject.get("entry");
 				//System.out.println(patientEntry.get(0));
-				for (int i = 0; i < 1; i++) {
+				for (int i = 0; i < patientEntry.size(); i++) {
 					Gson gson = new GsonBuilder().create();
-					System.out.println(patientEntry.get(i).toString());
+					//System.out.println(patientEntry.get(i).toString());
 					Patient p = gson.fromJson(patientEntry.get(i).toString(), Patient.class);
 					values +=  "( '" +p.getResourceObject().getId()+"' , '" ;
 					if(p.getResourceObject().getName() != null){
@@ -59,7 +59,7 @@ public class RestHandler {
 					values += p.getResourceObject().getGender()+ "' , '" +p.getResourceObject().getBirthDate()+"' , "+p.getResourceObject().getMultipleBirthInteger()+" , '" +
 							p.getResourceObject().getDeceasedDateTime()+"' ) ,";
 
-					System.out.println("Values" +values);
+					//System.out.println("Values" +values);
 				}
 
 				values = values.substring(0, values.lastIndexOf(')')+1) ;
