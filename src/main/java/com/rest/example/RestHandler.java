@@ -63,11 +63,18 @@ public class RestHandler {
 					values += p.getResourceObject().getGender()+ " , " +p.getResourceObject().getBirthDate()+" , "+p.getResourceObject().getMultipleBirthInteger()+" , " +
 							p.getResourceObject().getDeceasedDateTime();
 
+
 					list.add(values);
+
 				}
 
 				
 
+				
+
+				}
+
+				
 				return list;
 			}
 

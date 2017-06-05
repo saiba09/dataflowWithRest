@@ -46,7 +46,10 @@ public class loadRestUsingDataflow {
 
 	//	PipelineOptions pipelineOptions = PipelineOptionsFactory.create();
 		Pipeline p = Pipeline.create(options);
+
 		PCollection<String> inputData = p.apply(Create.of(data)).setCoder(StringUtf8Coder.of());
+		PCollection<String> inputData = p.apply("Fetching Data from Rest" , Create.of(data)).setCoder(StringUtf8Coder.of());
+
 		inputData.apply(ParDo.named("Processing File").of(MUTATION_TRANSFORM))
 		.apply(BigQueryIO.Write
 				.named("Writeing to Big Querry")
