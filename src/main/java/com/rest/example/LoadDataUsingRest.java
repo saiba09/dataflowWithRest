@@ -12,7 +12,7 @@ import com.google.cloud.bigquery.JobInfo;
 import com.google.cloud.bigquery.QueryJobConfiguration;
 
 
-public class LoadDataUsingRest {
+public class LoadDataUsingRest {/*
 public static void main(String[] args) throws InterruptedException, TimeoutException {
 	BigQuery bigquery = BigQueryOptions.getDefaultInstance().getService();
 	
@@ -46,6 +46,6 @@ public static void main(String[] args) throws InterruptedException, TimeoutExcep
 	}
   
       }
-
+*/
 }
 
