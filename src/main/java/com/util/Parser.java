@@ -20,7 +20,9 @@ public class Parser {
 		patientEntity.setTelecom(data[6].trim());
 		patientEntity.setGender(data[7].trim());
 		patientEntity.setBirthDate(data[8].trim());
-		if (data[9].equalsIgnoreCase("null")) {
+
+		patientEntity.setMultipleBirthInteger(Integer.parseInt(data[9].trim()));
+	if (data[9].equalsIgnoreCase("null")) {
 			patientEntity.setMultipleBirthInteger(0);
 
 		}

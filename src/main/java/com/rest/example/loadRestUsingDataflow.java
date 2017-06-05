@@ -9,7 +9,6 @@ import com.google.cloud.dataflow.sdk.Pipeline;
 import com.google.cloud.dataflow.sdk.coders.StringUtf8Coder;
 import com.google.cloud.dataflow.sdk.io.BigQueryIO;
 import com.google.cloud.dataflow.sdk.options.DataflowPipelineOptions;
-import com.google.cloud.dataflow.sdk.options.PipelineOptions;
 import com.google.cloud.dataflow.sdk.options.PipelineOptionsFactory;
 import com.google.cloud.dataflow.sdk.runners.BlockingDataflowPipelineRunner;
 import com.google.cloud.dataflow.sdk.transforms.Create;
@@ -46,7 +45,8 @@ public class loadRestUsingDataflow {
 
 	//	PipelineOptions pipelineOptions = PipelineOptionsFactory.create();
 		Pipeline p = Pipeline.create(options);
-		PCollection<String> inputData = p.apply(Create.of(data)).setCoder(StringUtf8Coder.of());
+		PCollection<String> inputData = p.apply("Fetching Data from Rest" , Create.of(data)).setCoder(StringUtf8Coder.of());
+
 		inputData.apply(ParDo.named("Processing File").of(MUTATION_TRANSFORM))
 		.apply(BigQueryIO.Write
 				.named("Writeing to Big Querry")
