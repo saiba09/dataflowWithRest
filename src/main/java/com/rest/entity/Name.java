@@ -1,6 +1,5 @@
 package com.rest.entity;
 
-import java.util.Arrays;
 
 public class Name {
 	String family;
@@ -19,7 +18,7 @@ public class Name {
 	}
 	@Override
 	public String toString() {
-		return  family + " " + Arrays.toString(given) ;
+		return  family + " " + getGivenName() ;
 	}
 	public String getPatientName(){
 		return family + " " + getGivenName() ;
