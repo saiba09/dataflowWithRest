@@ -24,8 +24,9 @@ public class Parser {
 			patientEntity.setMultipleBirthInteger(0);
 
 		}
-		else
+		else{
 			patientEntity.setMultipleBirthInteger(Integer.parseInt(data[9].trim()));
+		}
 		patientEntity.setDeceasedDateTime(data[10].trim());
 		return patientEntity;
 	}
