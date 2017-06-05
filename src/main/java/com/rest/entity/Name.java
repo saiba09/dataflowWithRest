@@ -22,6 +22,14 @@ public class Name {
 		return  family + " " + Arrays.toString(given) ;
 	}
 	public String getPatientName(){
-		return family + " " + Arrays.toString(given) ;
+		return family + " " + getGivenName() ;
+	}
+	private String getGivenName() {
+		// TODO Auto-generated method stub
+		String given = "";
+		for (String string : this.given) {
+			given += string;
+		}
+		return given;
 	}
 }

@@ -50,8 +50,16 @@ public class Address {
 	}
 	@Override
 	public String toString(){
-		return Arrays.toString(line)+" "+district +" "+ city +" "+postalCode;
+		return getline()+" "+district +" "+ city +" "+postalCode;
 				
 		
+	}
+	private String getline() {
+		// TODO Auto-generated method stub
+		String line = "";
+		for (String string : this.line) {
+			line += string;
+		}
+		return line;
 	}
 }
