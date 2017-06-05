@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.rest.entity.*;
@@ -13,9 +16,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class RestHandler {
-	public static String getData(){
+	static final List<String> list = new ArrayList<String>();
+	public static List<String> getData(){
 		//public static void main(String[] args){
-		String sql ="#standardSQL \n   INSERT INTO `healthcare-12.Mihin_Data_Sample.PatientDataFromRest` ( patient_id, name, Address, city, State, maritialStatus, telecom, gender, birthDate, multipleBirthInteger, deceasedDateTime ) VALUES ";
+//		String sql ="#standardSQL \n   INSERT INTO `healthcare-12.Mihin_Data_Sample.PatientDataFromRest` ( patient_id, name, Address, city, State, maritialStatus, telecom, gender, birthDate, multipleBirthInteger, deceasedDateTime ) VALUES ";
 		String values="";
 		try{
 			URL url = new URL("http://52.90.126.238:8080/fhir/baseDstu3/Patient");
@@ -39,32 +43,32 @@ public class RestHandler {
 					Gson gson = new GsonBuilder().create();
 					//System.out.println(patientEntry.get(i).toString());
 					Patient p = gson.fromJson(patientEntry.get(i).toString(), Patient.class);
-					values +=  "( '" +p.getResourceObject().getId()+"' , '" ;
+					values +=  p.getResourceObject().getId()+" , " ;
 					if(p.getResourceObject().getName() != null){
-						values += p.getResourceObject().getName()[0].toString() +"' , '";
+						values += p.getResourceObject().getName()[0].toString() +" , ";
 					}
-					else values += "null' , '" ; 
+					else values += "null , " ; 
 					if( p.getResourceObject().getAddress() != null ){
-						values += p.getResourceObject().getAddress()[0].toString() + "' , '"+p.getResourceObject().getAddress()[0].getCity() +"' , '"+
-								p.getResourceObject().getAddress()[0].getState()+"' , '";
+						values += p.getResourceObject().getAddress()[0].toString() + " , "+p.getResourceObject().getAddress()[0].getCity() +" , "+
+								p.getResourceObject().getAddress()[0].getState()+" , ";
 					}
-					else values += "null' , 'null' , 'null' ," ; 
+					else values += "null , null , null ," ; 
 					if(p.getResourceObject().getMaritialStatus() != null)
-						values += p.getResourceObject().getMaritialStatus().toString()+"' , '";
-					else values += "null' , '" ; 
+						values += p.getResourceObject().getMaritialStatus().toString()+" , ";
+					else values += "null , '" ; 
 					if (p.getResourceObject().getTelecom() != null) {
-						values += p.getResourceObject().getTelecom()[0].toString()+"' , '";
+						values += p.getResourceObject().getTelecom()[0].toString()+" , ";
 					}
-					else values += "null' , '" ; 
-					values += p.getResourceObject().getGender()+ "' , '" +p.getResourceObject().getBirthDate()+"' , "+p.getResourceObject().getMultipleBirthInteger()+" , '" +
-							p.getResourceObject().getDeceasedDateTime()+"' ) ,";
+					else values += "null , " ; 
+					values += p.getResourceObject().getGender()+ " , " +p.getResourceObject().getBirthDate()+" , "+p.getResourceObject().getMultipleBirthInteger()+" , " +
+							p.getResourceObject().getDeceasedDateTime();
 
-					//System.out.println("Values" +values);
+					list.add(values);
 				}
 
-				values = values.substring(0, values.lastIndexOf(')')+1) ;
+				
 
-				return sql+values+ ";";
+				return list;
 			}
 
 
